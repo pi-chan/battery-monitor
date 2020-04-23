@@ -10,8 +10,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        VStack(alignment: .leading) {
+            Button(action: {}) {
+                Text("Quit")
+            }
+            Text("Hello, World!")
+                .multilineTextAlignment(.trailing)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
