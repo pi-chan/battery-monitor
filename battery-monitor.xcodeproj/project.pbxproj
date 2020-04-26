@@ -12,6 +12,7 @@
 		01FD75C324516CC70022C433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01FD75C224516CC70022C433 /* Assets.xcassets */; };
 		01FD75C624516CC70022C433 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01FD75C524516CC70022C433 /* Preview Assets.xcassets */; };
 		01FD75C924516CC70022C433 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01FD75C724516CC70022C433 /* Main.storyboard */; };
+		01FD75D224517AA90022C433 /* BatteryChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD75D124517AA90022C433 /* BatteryChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		01FD75C824516CC70022C433 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01FD75CA24516CC70022C433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01FD75CB24516CC70022C433 /* battery_monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = battery_monitor.entitlements; sourceTree = "<group>"; };
+		01FD75D124517AA90022C433 /* BatteryChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				01FD75CA24516CC70022C433 /* Info.plist */,
 				01FD75CB24516CC70022C433 /* battery_monitor.entitlements */,
 				01FD75C424516CC70022C433 /* Preview Content */,
+				01FD75D124517AA90022C433 /* BatteryChecker.swift */,
 			);
 			path = "battery-monitor";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01FD75D224517AA90022C433 /* BatteryChecker.swift in Sources */,
 				01FD75C124516CC50022C433 /* ContentView.swift in Sources */,
 				01FD75BF24516CC50022C433 /* AppDelegate.swift in Sources */,
 			);

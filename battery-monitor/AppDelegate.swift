@@ -27,9 +27,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = NSHostingController(rootView: contentView)
         self.popover = popover
         
-        statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
+        statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.squareLength))
         if let button = self.statusBarItem.button {
-            button.image = NSImage(named: "Icon")
+            let size = NSMakeSize(22, 22)
+            let image = NSImage(named: "Icon")
+            image?.size = size
+            button.image = image
         }
         
         let statusBarMenu = NSMenu(title: "Cap Status Bar Menu")
@@ -46,7 +49,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             keyEquivalent: "")
         
         NSApp.activate(ignoringOtherApps: true)
-
+        
+        let batteryChecker = BatteryChecker()
+        batteryChecker.run()
     }
     
     @objc func togglePopover(_ sender: AnyObject?) {
