@@ -14,10 +14,14 @@ class BatteryChecker: NSObject {
     let prevValue: Int = -1
     
     func run() {
+        var threshold = UserDefaults.standard.integer(forKey: "threshold")
+        if threshold == 0 {
+            threshold = 50
+        }
         Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
             let percentage = self.batteryPercentage()
-            if( percentage > 0 && percentage < self.prevValue && percentage < 50 ) {
-                self.notifyToWebhook()
+            if( percentage > 0 && percentage < self.prevValue && percentage < threshold ) {
+                self.notifyToWebhook(threshold: threshold)
             }
         }
     }
@@ -44,9 +48,9 @@ class BatteryChecker: NSObject {
         return -1
     }
     
-    func notifyToWebhook() {
+    func notifyToWebhook(threshold: Int) {
         if let url = UserDefaults.standard.string(forKey: "webhook") {
-            WebhookNotifier.notify(webhookUrl: url)
+            WebhookNotifier.notify(webhookUrl: url, threshold: threshold)
         }
     }
 }

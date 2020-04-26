@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0130C96624551B1C007C2DC1 /* WebhookNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0130C96524551B1C007C2DC1 /* WebhookNotifier.swift */; };
+		017A24AE2455245F0061969D /* Just in Frameworks */ = {isa = PBXBuildFile; productRef = 017A24AD2455245F0061969D /* Just */; };
 		01FD75BF24516CC50022C433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD75BE24516CC50022C433 /* AppDelegate.swift */; };
 		01FD75C124516CC50022C433 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD75C024516CC50022C433 /* ContentView.swift */; };
 		01FD75C324516CC70022C433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01FD75C224516CC70022C433 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				017A24AE2455245F0061969D /* Just in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +98,9 @@
 			dependencies = (
 			);
 			name = "battery-monitor";
+			packageProductDependencies = (
+				017A24AD2455245F0061969D /* Just */,
+			);
 			productName = "battery-monitor";
 			productReference = 01FD75BB24516CC50022C433 /* battery-monitor.app */;
 			productType = "com.apple.product-type.application";
@@ -124,6 +129,9 @@
 				Base,
 			);
 			mainGroup = 01FD75B224516CC50022C433;
+			packageReferences = (
+				017A24AC2455245F0061969D /* XCRemoteSwiftPackageReference "Just" */,
+			);
 			productRefGroup = 01FD75BC24516CC50022C433 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -353,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		017A24AC2455245F0061969D /* XCRemoteSwiftPackageReference "Just" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dduan/Just";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		017A24AD2455245F0061969D /* Just */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 017A24AC2455245F0061969D /* XCRemoteSwiftPackageReference "Just" */;
+			productName = Just;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 01FD75B324516CC50022C433 /* Project object */;
 }
