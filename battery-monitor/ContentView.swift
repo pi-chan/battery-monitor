@@ -20,6 +20,11 @@ struct ContentView: View {
                     print("\(self.webhook)")
                     UserDefaults.standard.set(self.webhook, forKey: "webhook")
                 })
+                Button(action: {
+                    WebhookNotifier.test(webhookUrl: self.webhook)
+                }){
+                    Text("Test Webhook")
+                }
             }
             
             HStack(alignment: .center) {
@@ -30,16 +35,16 @@ struct ContentView: View {
                 })
             }
         }.padding()
-        .onAppear {
-            let thres = UserDefaults.standard.integer(forKey: "threshold")
-            print(thres)
-            if thres > 0 {
-                self.threshold = Double(thres)
-            }
-            if let url = UserDefaults.standard.string(forKey: "webhook") {
-                print(url)
-                self.webhook = url
-            }
+            .onAppear {
+                let thres = UserDefaults.standard.integer(forKey: "threshold")
+                print(thres)
+                if thres > 0 {
+                    self.threshold = Double(thres)
+                }
+                if let url = UserDefaults.standard.string(forKey: "webhook") {
+                    print(url)
+                    self.webhook = url
+                }
         }
     }
     

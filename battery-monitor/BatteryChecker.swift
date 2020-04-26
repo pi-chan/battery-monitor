@@ -45,6 +45,8 @@ class BatteryChecker: NSObject {
     }
     
     func notifyToWebhook() {
-        // 設定
+        if let url = UserDefaults.standard.string(forKey: "webhook") {
+            WebhookNotifier.notify(webhookUrl: url)
+        }
     }
 }

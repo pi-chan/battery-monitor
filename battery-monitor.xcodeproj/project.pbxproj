@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0130C96624551B1C007C2DC1 /* WebhookNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0130C96524551B1C007C2DC1 /* WebhookNotifier.swift */; };
 		01FD75BF24516CC50022C433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD75BE24516CC50022C433 /* AppDelegate.swift */; };
 		01FD75C124516CC50022C433 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD75C024516CC50022C433 /* ContentView.swift */; };
 		01FD75C324516CC70022C433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01FD75C224516CC70022C433 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0130C96524551B1C007C2DC1 /* WebhookNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookNotifier.swift; sourceTree = "<group>"; };
 		01FD75BB24516CC50022C433 /* battery-monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "battery-monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01FD75BE24516CC50022C433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01FD75C024516CC50022C433 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				01FD75CB24516CC70022C433 /* battery_monitor.entitlements */,
 				01FD75C424516CC70022C433 /* Preview Content */,
 				01FD75D124517AA90022C433 /* BatteryChecker.swift */,
+				0130C96524551B1C007C2DC1 /* WebhookNotifier.swift */,
 			);
 			path = "battery-monitor";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				01FD75D224517AA90022C433 /* BatteryChecker.swift in Sources */,
 				01FD75C124516CC50022C433 /* ContentView.swift in Sources */,
 				01FD75BF24516CC50022C433 /* AppDelegate.swift in Sources */,
+				0130C96624551B1C007C2DC1 /* WebhookNotifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
