@@ -11,10 +11,14 @@ import Foundation
 import IOKit.ps
 
 class BatteryChecker: NSObject {
+    let prevValue: Int = -1
+    
     func run() {
         Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
             let percentage = self.batteryPercentage()
-            print("Battery: \(percentage) %")
+            if( percentage > 0 && percentage < self.prevValue && percentage < 50 ) {
+                self.notifyToWebhook()
+            }
         }
     }
       
@@ -38,5 +42,9 @@ class BatteryChecker: NSObject {
         }
         
         return -1
+    }
+    
+    func notifyToWebhook() {
+        // 設定
     }
 }

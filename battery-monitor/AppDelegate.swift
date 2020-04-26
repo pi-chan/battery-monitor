@@ -39,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarItem.menu = statusBarMenu
         
         statusBarMenu.addItem(
-            withTitle: "Preferences",
+            withTitle: "Preferences...",
             action: #selector(AppDelegate.togglePopover),
             keyEquivalent: "")
         
