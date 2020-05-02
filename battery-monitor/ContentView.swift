@@ -58,6 +58,7 @@ struct ContentView: View {
                     UserDefaults.standard.set(self.webhook, forKey: "webhook")
                     UserDefaults.standard.set(self.webhookParam, forKey: "webhookParam")
                     UserDefaults.standard.set(self.launchAtLogin, forKey: "launchAtLogin")
+                    LaunchAtLogin.isEnabled = self.launchAtLogin
                     self.popover?.performClose(self)
                 }) {
                     Text("Save")
