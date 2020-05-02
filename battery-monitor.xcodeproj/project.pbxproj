@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01200D0F245D40E900AC9C33 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01200D0E245D40E900AC9C33 /* LaunchAtLogin.framework */; };
 		0130C96624551B1C007C2DC1 /* WebhookNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0130C96524551B1C007C2DC1 /* WebhookNotifier.swift */; };
 		017A24AE2455245F0061969D /* Just in Frameworks */ = {isa = PBXBuildFile; productRef = 017A24AD2455245F0061969D /* Just */; };
 		01FD75BF24516CC50022C433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD75BE24516CC50022C433 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01200D0E245D40E900AC9C33 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 		0130C96524551B1C007C2DC1 /* WebhookNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookNotifier.swift; sourceTree = "<group>"; };
 		01FD75BB24516CC50022C433 /* battery-monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "battery-monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01FD75BE24516CC50022C433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01200D0F245D40E900AC9C33 /* LaunchAtLogin.framework in Frameworks */,
 				017A24AE2455245F0061969D /* Just in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +48,7 @@
 		01FD75B224516CC50022C433 = {
 			isa = PBXGroup;
 			children = (
+				01200D0E245D40E900AC9C33 /* LaunchAtLogin.framework */,
 				01FD75BD24516CC50022C433 /* battery-monitor */,
 				01FD75BC24516CC50022C433 /* Products */,
 			);
@@ -92,6 +96,8 @@
 				01FD75B724516CC50022C433 /* Sources */,
 				01FD75B824516CC50022C433 /* Frameworks */,
 				01FD75B924516CC50022C433 /* Resources */,
+				01200D10245D412400AC9C33 /* ShellScript */,
+				01200D0D245D403C00AC9C33 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -153,6 +159,44 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01200D0D245D403C00AC9C33 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
+		};
+		01200D10245D412400AC9C33 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/LaunchAtLogin.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01FD75B724516CC50022C433 /* Sources */ = {
@@ -304,6 +348,10 @@
 				DEVELOPMENT_TEAM = ZZ47U4PG3J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "battery-monitor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -327,6 +375,10 @@
 				DEVELOPMENT_TEAM = ZZ47U4PG3J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "battery-monitor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

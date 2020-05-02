@@ -7,44 +7,65 @@
 //
 
 import SwiftUI
+import LaunchAtLogin
 
 struct ContentView: View {
     @State private var webhook = ""
+    @State private var webhookParam = "payload"
     @State private var threshold = 50.0
+    @State private var launchAtLogin = false
+    
+    var popover: NSPopover?
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
-                Text("Webhook URL")
-                TextField("Webhook URL", text: $webhook, onEditingChanged: { _ in
-                    print("\(self.webhook)")
-                    UserDefaults.standard.set(self.webhook, forKey: "webhook")
-                })
-                Button(action: {
-                    WebhookNotifier.test(webhookUrl: self.webhook)
-                }){
-                    Text("Test Webhook")
+                Toggle(isOn: $launchAtLogin) {
+                    Text("Launch At Login")
+                        .padding(.bottom)
                 }
             }
             
             HStack(alignment: .center) {
-                Text("Notify when battery is less than \(thresholdAsInt) %")
-                Slider(value: $threshold, in: 10...80, onEditingChanged: { _ in
-                    print("\(self.thresholdAsInt)")
-                    UserDefaults.standard.set(self.thresholdAsInt, forKey: "threshold")
-                })
+                Text("Webhook Parameter")
+                TextField("Webhook Parameter", text: $webhookParam)
+                Button(action: {
+                    WebhookNotifier.test(webhookUrl: self.webhook, param: self.webhookParam)
+                }){
+                    Text("Test Webhook")
+                }
             }
+
+            HStack(alignment: .center) {
+                Text("Webhook URL")
+                TextField("Webhook URL", text: $webhook)
+            }
+            
+            HStack(alignment: .center) {
+                Text("Notify when battery is less than \(thresholdAsInt) %")
+                Slider(value: $threshold, in: 10...80)
+            }
+            
+            HStack(alignment: .center) {
+                Button(action: {
+                    self.initValues()
+                    self.popover?.performClose(self)
+                }) {
+                    Text("Cancel")
+                }
+                Button(action: {
+                    UserDefaults.standard.set(self.thresholdAsInt, forKey: "threshold")
+                    UserDefaults.standard.set(self.webhook, forKey: "webhook")
+                    UserDefaults.standard.set(self.webhookParam, forKey: "webhookParam")
+                    UserDefaults.standard.set(self.launchAtLogin, forKey: "launchAtLogin")
+                    self.popover?.performClose(self)
+                }) {
+                    Text("Save")
+                }
+            }.padding(.top)
         }.padding()
             .onAppear {
-                let thres = UserDefaults.standard.integer(forKey: "threshold")
-                print(thres)
-                if thres > 0 {
-                    self.threshold = Double(thres)
-                }
-                if let url = UserDefaults.standard.string(forKey: "webhook") {
-                    print(url)
-                    self.webhook = url
-                }
+                self.initValues()
         }
     }
     
@@ -52,6 +73,21 @@ struct ContentView: View {
         get {
             return Int(threshold)
         }
+    }
+    
+    func initValues() {
+        let thres = UserDefaults.standard.integer(forKey: "threshold")
+        if thres > 0 {
+            self.threshold = Double(thres)
+        }
+        if let url = UserDefaults.standard.string(forKey: "webhook") {
+            self.webhook = url
+        }
+        if let param = UserDefaults.standard.string(forKey: "webhookParam") {
+            self.webhookParam = param
+        }
+        self.launchAtLogin = UserDefaults.standard.bool(forKey: "launchAtLogin")
+        print("launchAtLogin => \(self.launchAtLogin)")
     }
 }
 

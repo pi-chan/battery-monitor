@@ -10,19 +10,20 @@ import Cocoa
 import Just
 
 class WebhookNotifier: NSObject {
-    static func test(webhookUrl: String) {
-        sendRequest(webhookUrl: webhookUrl, body: "Test Request from 'battery-monitor'")
+    static func test(webhookUrl: String, param: String) {
+        sendRequest(webhookUrl: webhookUrl, param: param, body: "Test Request from 'battery-monitor'")
     }
     
-    static func notify(webhookUrl: String, threshold: Int) {
-        sendRequest(webhookUrl: webhookUrl, body: "Your Mac's battery has less than \(threshold)% remaining.")
+    static func notify(webhookUrl: String, param: String, threshold: Int) {
+        sendRequest(webhookUrl: webhookUrl, param: param, body: "Your Mac's battery has less than \(threshold)% remaining.")
     }
     
-    private static func sendRequest(webhookUrl: String, body: String) {
+    private static func sendRequest(webhookUrl: String, param: String, body: String) {
         //  talk to registration end point
+        let data = [param: body]
         Just.post(
             webhookUrl,
-            data: ["message": body]
+            json: data
         ) { r in
             if r.ok { /* success! */ }
         }
