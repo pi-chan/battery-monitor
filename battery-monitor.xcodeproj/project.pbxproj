@@ -344,6 +344,7 @@
 				CODE_SIGN_ENTITLEMENTS = "battery-monitor/battery_monitor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"battery-monitor/Preview Content\"";
 				DEVELOPMENT_TEAM = ZZ47U4PG3J;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -371,6 +372,7 @@
 				CODE_SIGN_ENTITLEMENTS = "battery-monitor/battery_monitor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"battery-monitor/Preview Content\"";
 				DEVELOPMENT_TEAM = ZZ47U4PG3J;
 				ENABLE_HARDENED_RUNTIME = YES;

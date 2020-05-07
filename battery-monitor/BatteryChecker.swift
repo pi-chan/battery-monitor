@@ -11,18 +11,24 @@ import Foundation
 import IOKit.ps
 
 class BatteryChecker: NSObject {
-    let prevValue: Int = -1
+    var prevValue: Int = -1
+    var notified = false
     
     func run() {
         var threshold = UserDefaults.standard.integer(forKey: "threshold")
         if threshold == 0 {
             threshold = 50
         }
-        Timer.scheduledTimer(withTimeInterval: 300, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 120, repeats: true) { timer in
             let percentage = self.batteryPercentage()
-            if( percentage > 0 && percentage < self.prevValue && percentage < threshold ) {
+            if( !self.notified && percentage > 0 && percentage < self.prevValue && percentage < threshold ) {
                 self.notifyToWebhook(threshold: threshold)
+                self.notified = true
+            } else if (self.notified && percentage > 0 && percentage > self.prevValue && percentage > threshold) {
+                // しきい値以上にバッテリーが戻ったら通知済フラグを戻す
+                self.notified = false
             }
+            self.prevValue = percentage
         }
     }
       

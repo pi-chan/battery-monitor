@@ -43,7 +43,7 @@ struct ContentView: View {
             
             HStack(alignment: .center) {
                 Text("Notify when battery is less than \(thresholdAsInt) %")
-                Slider(value: $threshold, in: 10...80)
+                Slider(value: $threshold, in: 10...99)
             }
             
             HStack(alignment: .center) {
@@ -88,7 +88,6 @@ struct ContentView: View {
             self.webhookParam = param
         }
         self.launchAtLogin = UserDefaults.standard.bool(forKey: "launchAtLogin")
-        print("launchAtLogin => \(self.launchAtLogin)")
     }
 }
 

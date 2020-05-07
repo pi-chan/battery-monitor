@@ -45,6 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             action: #selector(AppDelegate.togglePopover),
             keyEquivalent: "")
         
+        statusBarMenu.addItem(NSMenuItem.separator())
+        
         statusBarMenu.addItem(
             withTitle: "Quit",
             action: #selector(AppDelegate.quit),
